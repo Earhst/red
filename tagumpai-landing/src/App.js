@@ -18,7 +18,7 @@ function App() {
       <section className="features">
         <h2>Key Features</h2>
         <ul>
-          <li>🧠 AI Learning Coach earl</li>
+          <li>🧠 AI Learning Coach</li>
           <li>🎤 Voice-Enabled SOPs</li>
           <li>📊 Predictive Compliance Analytics</li>
           <li>📱 Mobile-First Interface</li>
