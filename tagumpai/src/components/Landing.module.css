@@ -1,64 +1,113 @@
-.container {
-  padding: 60px 20px;
-  max-width: 960px;
-  margin: 0 auto;
-  background-color: #f2f2f2;
+
+.page {
   font-family: 'Segoe UI', sans-serif;
-  color: #333;
+  background: white;
+  color: #002147;
+  padding-top: 80px;
+  scroll-behavior: smooth;
 }
 
-.title {
+.navbar {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  border-bottom: 2px solid #f0f0f0;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height:150px;
+  max-height: 15vh;
+  transition: all 0.3s ease-in-out;
+}
+
+.scrolled .logo img {
+  height: 10px;
+}
+
+.navLinks a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #002147;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.navLinks a:hover {
+  color: #FFD700;
+}
+
+.hero {
+  text-align: left;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #ffffff, #f9f9f9);
+}
+
+.hero h1 {
   font-size: 3rem;
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 10px;
-  color: #1a1a1a;
+  margin-bottom: 1rem;
 }
 
-.subtitle {
-  font-size: 1.4rem;
-  font-weight: 400;
-  text-align: center;
-  margin-bottom: 40px;
-  color: #555;
+.brand {
+  color: #FFD700;
 }
 
-/* Add visual separation and outline for each section */
+.tagline {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  max-width: 600px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
 .section {
-  margin-bottom: 40px;
-  padding: 30px;
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease;
-}
-
-.section:hover {
-  transform: scale(1.01);
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
 }
 
 .section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 16px;
-  color: #222;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 8px;
+  color: #002147;
+  margin-bottom: 1rem;
+}
+
+.section h3 {
+  color: #002147;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .section ul,
 .section ol {
-  padding-left: 20px;
-  margin-top: 10px;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .section li {
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
   line-height: 1.6;
 }
 
-.highlight {
-  font-weight: bold;
-  margin-bottom: 20px;
-  display: block;
+.section p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.hidden {
+  display: none;
 }
