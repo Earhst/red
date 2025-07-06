@@ -3,6 +3,7 @@ import styles from './Landing.module.css';
 
 function Landing() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,17 +14,46 @@ function Landing() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      setMenuOpen(false); // close menu on mobile after clicking
+    }
+  };
+
   return (
     <div className={styles.page}>
       <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={`${styles.logo} ${isScrolled ? styles.logoSmall : ''}`}>
           <img src="/tagumpai-logo.svg" alt="TagumpAI Logo" />
         </div>
-        <div className={styles.navLinks}>
-          <a href="#hero">Home</a>
-          <a href="#mission">Mission</a>
-          <a href="#features">Features</a>
-          <a href="#contact">Contact</a>
+
+        <div className={styles.desktopLinks}>
+          <a onClick={() => scrollToSection('hero')}>Home</a>
+          <a onClick={() => scrollToSection('mission')}>Mission</a>
+          <a onClick={() => scrollToSection('features')}>Features</a>
+          <a onClick={() => scrollToSection('contact')}>Contact</a>
+        </div>
+
+        <div className={styles.mobileMenu}>
+          <button className={styles.hamburger} onClick={toggleMenu}>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+            <div className={styles.bar}></div>
+          </button>
+          {menuOpen && (
+            <div className={styles.dropdown}>
+              <a onClick={() => scrollToSection('hero')}>Home</a>
+              <a onClick={() => scrollToSection('mission')}>Mission</a>
+              <a onClick={() => scrollToSection('features')}>Features</a>
+              <a onClick={() => scrollToSection('contact')}>Contact</a>
+            </div>
+          )}
         </div>
       </nav>
 

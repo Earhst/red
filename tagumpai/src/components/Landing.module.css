@@ -1,5 +1,5 @@
 .page {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Roboto', sans-serif;
   background: linear-gradient(to right, #fbff29, #07056d);
   color: #002147;
   scroll-behavior: smooth;
@@ -23,21 +23,21 @@
 }
 
 .logo img {
-  height: 200px;
+  height: 80px;
   transition: height 0.3s ease-in-out;
 }
 
 .logoSmall img {
-  height: 100px;
+  height: 60px;
 }
 
-.navLinks {
+.desktopLinks {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.navLinks a {
+.desktopLinks a {
   text-decoration: none;
   color: #002147;
   font-size: 1.1rem;
@@ -46,7 +46,7 @@
   cursor: pointer;
 }
 
-.navLinks a:hover {
+.desktopLinks a:hover {
   color: #FFD700;
 }
 
@@ -88,7 +88,8 @@
   font-size: 2rem;
 }
 
-.section ul {
+.section ul,
+.section ol {
   padding-left: 1.5rem;
 }
 
@@ -98,30 +99,75 @@
   font-size: 1.1rem;
 }
 
+.highlight {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #030a64;
+  text-align: left;
+}
+
+.mobileMenu {
+  display: none;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #002147;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  z-index: 999;
+}
+
+.dropdown a {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: #002147;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown a:hover {
+  background-color: #f5f5f5;
+}
+
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+  .logo {
+    align-self: flex-start;
   }
 
-  .navLinks {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    padding-top: 0.5rem;
+  .desktopLinks {
+    display: none;
   }
 
-  .navLinks a {
-    padding: 0.5rem 0;
-    font-size: 1rem;
+  .mobileMenu {
+    display: block;
   }
 
   .logo img {
-    height: 60px;
-  }
-
-  .logoSmall img {
-    height: 40px;
+    height: 70px;
   }
 
   .hero h1 {
@@ -130,5 +176,13 @@
 
   .description {
     font-size: 1rem;
+  }
+
+  .section {
+    padding: 3rem 1rem;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
   }
 }
