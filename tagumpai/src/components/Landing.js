@@ -6,25 +6,12 @@ function Landing() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-      setMenuOpen(false); // close menu on mobile after clicking
-    }
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
     <div className={styles.page}>
@@ -34,10 +21,10 @@ function Landing() {
         </div>
 
         <div className={styles.desktopLinks}>
-          <a onClick={() => scrollToSection('hero')}>Home</a>
-          <a onClick={() => scrollToSection('mission')}>Mission</a>
-          <a onClick={() => scrollToSection('features')}>Features</a>
-          <a onClick={() => scrollToSection('contact')}>Contact</a>
+          <a href="#hero">Home</a>
+          <a href="#mission">Mission</a>
+          <a href="#features">Features</a>
+          <a href="#contact">Contact</a>
         </div>
 
         <div className={styles.mobileMenu}>
@@ -48,29 +35,34 @@ function Landing() {
           </button>
           {menuOpen && (
             <div className={styles.dropdown}>
-              <a onClick={() => scrollToSection('hero')}>Home</a>
-              <a onClick={() => scrollToSection('mission')}>Mission</a>
-              <a onClick={() => scrollToSection('features')}>Features</a>
-              <a onClick={() => scrollToSection('contact')}>Contact</a>
+              <a href="#hero" onClick={() => setMenuOpen(false)}>Home</a>
+              <a href="#mission" onClick={() => setMenuOpen(false)}>Mission</a>
+              <a href="#features" onClick={() => setMenuOpen(false)}>Features</a>
+              <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
             </div>
           )}
         </div>
       </nav>
 
       <section id="hero" className={styles.hero}>
-        <h1>
-          <span className={styles.brand}>TagumpAI</span>: Bringing You to TagumpAI!
-        </h1>
-        <p className={styles.tagline}>Tagging AI into Training, Compliance and Growth</p>
-        <p className={styles.description}>
-          TagumpAI.com is an AI-powered platform built to level up how businesses train, manage,
-          and ensure compliance—across hospitality, food service, retail, logistics, and more.
-          Carrying the spirit of Filipino ingenuity—resourceful, service-centered, and warm-hearted,
-          it is proudly built on the foundation of the Filipinos' globally recognized talent—respected
-          in world-class hotels, airlines, and enterprises for their excellence, adaptability, and heart.
-          Whether you're running a fast-growing cafe, a logistics chain, or a training institute, we help
-          you build smarter systems without the paperwork, complexity, or guesswork.
-        </p>
+        <div className={styles.heroContent}>
+          <div className={styles.textColumn}>
+            <h1><span className={styles.brand}>TagumpAI</span>: Bringing You to TagumpAI!</h1>
+            <p className={styles.tagline}>Tagging AI into Training, Compliance and Growth</p>
+            <p className={styles.description}>
+              TagumpAI.com is an AI-powered platform built to level up how businesses train, manage,
+              and ensure compliance—across hospitality, food service, retail, logistics, and more.
+              Carrying the spirit of Filipino ingenuity—resourceful, service-centered, and warm-hearted,
+              it is proudly built on the foundation of the Filipinos' globally recognized talent—respected
+              in world-class hotels, airlines, and enterprises for their excellence, adaptability, and heart.
+              Whether you're running a fast-growing cafe, a logistics chain, or a training institute, we help
+              you build smarter systems without the paperwork, complexity, or guesswork.
+            </p>
+          </div>
+          <div className={styles.imageColumn}>
+            <img src="/pic" alt="pic" className={styles.heroImage} />
+          </div>
+        </div>
       </section>
 
       <section className={styles.section}>
