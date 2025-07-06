@@ -1,9 +1,7 @@
-
 .page {
   font-family: 'Segoe UI', sans-serif;
-  background: white;
+  background: linear-gradient(to right, #fbff29, #07056d);
   color: #002147;
-  padding-top: 80px;
   scroll-behavior: smooth;
 }
 
@@ -11,33 +9,38 @@
   position: sticky;
   top: 0;
   background-color: white;
-  border-bottom: 2px solid #f0f0f0;
-  padding: 1rem 2rem;
+  border-bottom: 5px solid #030a64;
+  padding: 0.75rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
+.navbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
-  height:150px;
-  max-height: 15vh;
-  transition: all 0.3s ease-in-out;
+  height: 200px;
+  transition: height 0.3s ease-in-out;
 }
 
-.scrolled .logo img {
-  height: 10px;
+.logoSmall img {
+  height: 100px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .navLinks a {
-  margin: 0 15px;
   text-decoration: none;
   color: #002147;
+  font-size: 1.1rem;
   font-weight: 600;
   transition: color 0.3s ease;
   cursor: pointer;
@@ -48,66 +51,84 @@
 }
 
 .hero {
-  text-align: left;
+  text-align: center;
   padding: 4rem 2rem;
-  background: linear-gradient(to right, #ffffff, #f9f9f9);
-}
-
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  color: white;
 }
 
 .brand {
-  color: #FFD700;
+  color: #0a0970;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .tagline {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
 }
 
 .description {
-  max-width: 600px;
-  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.2rem;
   line-height: 1.6;
 }
 
 .section {
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   max-width: 900px;
   margin: 0 auto;
-  transition: all 0.3s ease-in-out;
+  color: white;
 }
 
 .section h2 {
-  color: #002147;
+  color: #030a64;
   margin-bottom: 1rem;
+  font-size: 2rem;
 }
 
-.section h3 {
-  color: #002147;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.section ul,
-.section ol {
+.section ul {
   padding-left: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .section li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   line-height: 1.6;
+  font-size: 1.1rem;
 }
 
-.section p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.hidden {
-  display: none;
+  .navLinks {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 0.5rem;
+  }
+
+  .navLinks a {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .logoSmall img {
+    height: 40px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
 }
